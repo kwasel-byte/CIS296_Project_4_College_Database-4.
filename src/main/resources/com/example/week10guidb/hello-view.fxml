@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.week10guidb.HelloController"
+      spacing="10" prefWidth="850" prefHeight="650">
+
+    <padding>
+        <Insets top="15" bottom="15" left="15" right="15"/>
+    </padding>
+
+    <Label text="College Database Management System"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <!-- STUDENTS TAB -->
+        <Tab text="Students">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label fx:id="welcomeText"/>
+
+                <Button text="Load Students"
+                        onAction="#onHelloButtonClick"/>
+
+                <TextField fx:id="studentFilterTextField"
+                           promptText="Search Students"
+                           onKeyTyped="#studentFilterTyped"/>
+
+                <ListView fx:id="studentListView"
+                          prefHeight="200"/>
+
+                <Button fx:id="selectStudentButton"
+                        text="Select Student"
+                        onAction="#selectedStudentButtonClicked"/>
+
+                <TextField fx:id="firstNameTextField"
+                           promptText="First Name"/>
+
+                <TextField fx:id="lastNameTextField"
+                           promptText="Last Name"/>
+
+                <TextField fx:id="majorTextField"
+                           promptText="Major"/>
+
+                <TextField fx:id="gpaTextField"
+                           promptText="GPA"/>
+
+                <HBox spacing="10">
+                    <Button fx:id="addStudentButton"
+                            text="Add Student"
+                            onAction="#addStudentButtonClicked"/>
+
+                    <Button fx:id="deleteStudentButton"
+                            text="Delete Student"
+                            onAction="#deleteStudentButtonClicked"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- COURSES TAB -->
+        <Tab text="Courses">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Manage Courses"/>
+
+                <ListView fx:id="courseListView"
+                          prefHeight="250"/>
+
+                <TextField fx:id="courseDepartmentField"
+                           promptText="Department (CIS)"/>
+
+                <TextField fx:id="courseNumberField"
+                           promptText="Course Number (296)"/>
+
+                <TextField fx:id="courseTitleField"
+                           promptText="Course Title"/>
+
+                <TextField fx:id="courseCreditsField"
+                           promptText="Credits"/>
+
+                <HBox spacing="10">
+                    <Button text="Load Courses"
+                            onAction="#loadCourses"/>
+
+                    <Button text="Add Course"
+                            onAction="#addCourseClicked"/>
+
+                    <Button text="Update Selected"
+                            onAction="#updateCourseClicked"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- FACULTY TAB -->
+        <Tab text="Faculty">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Manage Faculty"/>
+
+                <ListView fx:id="facultyListView"
+                          prefHeight="250"/>
+
+                <TextField fx:id="facultyFirstNameField"
+                           promptText="First Name"/>
+
+                <TextField fx:id="facultyLastNameField"
+                           promptText="Last Name"/>
+
+                <TextField fx:id="facultyDepartmentField"
+                           promptText="Department"/>
+
+                <HBox spacing="10">
+                    <Button text="Load Faculty"
+                            onAction="#loadFaculty"/>
+
+                    <Button text="Add Faculty"
+                            onAction="#addFacultyClicked"/>
+
+                    <Button text="Update Selected"
+                            onAction="#updateFacultyClicked"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- SECTIONS TAB -->
+        <Tab text="Sections">
+            <ScrollPane fitToWidth="true">
+                <VBox spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <Label text="Manage Sections"/>
+
+                    <ListView fx:id="sectionListView"
+                              prefHeight="200"/>
+
+                    <TextField fx:id="sectionCourseIDField"
+                               promptText="Course ID"/>
+
+                    <TextField fx:id="sectionFacultyIDField"
+                               promptText="Faculty ID"/>
+
+                    <TextField fx:id="sectionSemesterField"
+                               promptText="Semester (Fall 2026)"/>
+
+                    <TextField fx:id="sectionDayField"
+                               promptText="Day"/>
+
+                    <TextField fx:id="sectionStartTimeField"
+                               promptText="Start Time"/>
+
+                    <TextField fx:id="sectionEndTimeField"
+                               promptText="End Time"/>
+
+                    <TextField fx:id="sectionModalityField"
+                               promptText="Modality (Online / In Person)"/>
+
+                    <HBox spacing="10">
+                        <Button text="Load Sections"
+                                onAction="#loadSections"/>
+
+                        <Button text="Add Section"
+                                onAction="#addSectionClicked"/>
+
+                        <Button text="Update Selected"
+                                onAction="#updateSectionClicked"/>
+                    </HBox>
+                </VBox>
+            </ScrollPane>
+        </Tab>
+
+        <!-- ENROLLMENTS TAB -->
+        <Tab text="Enrollments">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Manage Enrollments"/>
+
+                <ListView fx:id="enrollmentListView"
+                          prefHeight="250"/>
+
+                <TextField fx:id="enrollmentSectionIDField"
+                           promptText="Section ID"/>
+
+                <TextField fx:id="enrollmentStudentIDField"
+                           promptText="Student ID"/>
+
+                <TextField fx:id="enrollmentGradeField"
+                           promptText="Grade"/>
+
+                <HBox spacing="10">
+                    <Button text="Load Enrollments"
+                            onAction="#loadEnrollments"/>
+
+                    <Button text="Add Enrollment"
+                            onAction="#addEnrollmentClicked"/>
+
+                    <Button text="Update Selected"
+                            onAction="#updateEnrollmentClicked"/>
+
+                    <Button text="Delete Selected"
+                            onAction="#deleteEnrollmentClicked"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>
